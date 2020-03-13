@@ -1,28 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 class="title">Memory game</h1>
+
+      <div class="game-field">
+        <gameInfo/>
+        <field/>
+      </div>      
+      <coverScreen/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import field from './components/field.vue'
+import coverScreen from './components/coverScreen.vue'
+import gameInfo from './components/gameInfo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    gameInfo,
+    field,
+    coverScreen,    
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+html,
+body
+  height: 100%
+  position: relative
+div 
+  box-sizing: border-box
+#app 
+  font-family: Avenir, Helvetica, Arial, sans-serif
+  text-align: center
+  color: #2c3e50
+  height: 100%
+  margin: 0 auto
+  .title
+    margin: 0
+    font-size: 20px
+    text-transform: uppercase
+    font-weight: bold
+  .game-field
+    display: inline-block
+    background-color: #fff
+    margin: 15px auto 0
+    width: 100%
+    max-width: 750px 
+    padding: 10px
+    border: 2px solid #eee
+
 </style>
