@@ -36,7 +36,7 @@ div
 #app 
   font-family: Avenir, Helvetica, Arial, sans-serif
   text-align: center
-  color: #2c3e50
+  color: $txt
   height: 100%
   margin: 0 auto
   .title

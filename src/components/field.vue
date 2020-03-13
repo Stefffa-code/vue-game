@@ -23,7 +23,8 @@ export default {
             checkCouple: [],
             check: false,
             numOpenCards: 0,
-            openCouples: 0
+            openCouples: 0,
+            isPreShow: false,
         }
     },
     methods:{
@@ -42,13 +43,13 @@ export default {
             'failGame',
         ]),
         
-        tapCard(id){         
-            let card = this.$store.getters.getCardById(id);
+        tapCard(id){   
+            if(this.isPreShow) return ;      
+            let card = this.$store.getters.getCardById(id); 
             this.checkCouple.push(card);
-            if(!card.openCouple && !this.check ){                
+            if(!card.openCouple && !this.check ){              
                 this.openCard(card.id);       
                 if(!card.open) return ;
-                
                 this.numOpenCards ++;
                 if(this.numOpenCards ===2 ){
                     this.check = true;
@@ -85,8 +86,10 @@ export default {
         },
         preShow(){
             this.openCards();
+            this.isPreShow = true
             setTimeout(()=>{
-                this.closeCards();                
+                this.closeCards(); 
+                this.isPreShow = false;               
             }, this.preTime);
         },
         
@@ -101,17 +104,25 @@ export default {
             'life',
         ]),
         cards(){
-            let cards = this.cardDate;
-            cards.sort(() => Math.random() - 0.5);
-            return cards;
+            let d = this.cardDate;
+            // cards.sort(() => Math.random() - 0.2);
+            // return cards;
+
+            for (var c = d.length - 1; c > 0; c--) {
+                var b = Math.floor(Math.random() * (c + 1));
+                var a = d[c];
+                d[c] = d[b];
+                d[b] = a;
+            }
+            return d
         },
         progress () {
-            return this.status === 'ready' || this.status === 'ingame'|| this.status === 'preshow' ; 
+            return this.status === 'ready' || this.status === 'ingame'|| this.status === 'preshow' || this.status ===  'completeLevel' || this.status ===  'complete' || this.status ===  'fail'; 
         },   
         setGridField(){
-                if (this.uniqueCards < 7) return 'grid25';
-                else if (this.uniqueCards < 13) return 'grid15';
-                else  return 'grid10';
+            if (this.uniqueCards < 7) return 'grid25';
+            else if (this.uniqueCards < 13) return 'grid15';
+            else  return 'grid10';
         }     
     },
     watch: {

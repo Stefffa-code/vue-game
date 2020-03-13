@@ -43,12 +43,11 @@ export default new Vuex.Store({
                 state.level = 0;
                 state.points = 0;
                 state.life = 5;
-                state.status = 'ready'; 
-                console.log('ready')               
+                state.status = 'ready';              
             } 
             else if(mode === 'continue'){
                 state.status = 'ready'; 
-                state.level++               
+                state.level++              
             }
         },
         initRoundData(state){
@@ -60,7 +59,6 @@ export default new Vuex.Store({
             state.uniqueCards = uniqueCards;
             state.preTime = preTime;
             state.cardDate = generateCards(uniqueCards);
-            console.log('ingame')
         },        
         lessLife(state){
             state.life --
@@ -100,11 +98,9 @@ export default new Vuex.Store({
         },
         completeLevelGame(state){
             state.status = 'completeLevel'
-            console.log('completeLevel')
         },
         completeGame(state){
             state.status = 'complete'
-            console.log('complete')
         },
         showCoverScreen(state){
             state.isShowCoverScreen = true;

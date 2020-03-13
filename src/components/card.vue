@@ -75,7 +75,8 @@ img
   &.flip .back
     transform: rotateY(0deg) 
   &.shadow
-    box-shadow: 8px 8px 6px -5px rgba(0, 0, 0, .3) 
+    // box-shadow: 3px 6px 16px -3px rgba(0, 0, 0, 0.39)
+    box-shadow: 8px 8px 6px -2px rgba(0, 0, 0, .2) 
   
 
 </style>

@@ -94,15 +94,20 @@ export default {
     .button
         display: inline-block
         background-color: #fff
-        font-size: 13
+        font-size: 13px
+        font-weight: bold
         text-transform: uppercase
-        padding: 6px 10px
+        padding: 10px 20px
         border: none 1px solid #fff
         margin: 3px
-        color: $accent
+        color: $txt
         font-weight: bold
-    &.showFadeIn
-        background-color: green
+        cursor: pointer
+    .button:hover
+        color: $txt
+        outline: 1px solid #fff
+        outline-offset: 3px
+        // box-shadow: 0 10px 20px rgba(0,0,0,0.25)
 .desc
     font-size: 20px
     margin-bottom: 20px

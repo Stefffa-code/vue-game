@@ -1,8 +1,8 @@
 <template>
     <div class="game-info">
         <div class="game-info__left">
-            <span>level {{ level + 1}} </span>
-            <span>points {{ points }} </span>
+            <span> level:  <span class="game-info__date">{{ level + 1}} </span>  </span>
+            <span>points:  <span class="game-info__date"> {{ points }} </span> </span>
             <span :key="index" v-for="index in allLife" class="life" >
                 <fa-icon v-if="index <= life" icon="heart" class="heart-live"/>
                 <fa-icon v-else icon="heart" class="heart-broken" />
@@ -77,9 +77,16 @@ export default {
         color: $lineColor
     .life
         margin: 0 2px
+        font-size: 16px
     span
         margin-right: 25px
-    
+        font-weight: bold
+        text-transform: uppercase
+        font-size: 12px
+        color: $txt
+    .game-info__date
+        font-size: 15px
+        margin-left: 4px
     .time
         background-color: $lineColor
         width: 40px
