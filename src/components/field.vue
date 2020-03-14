@@ -44,7 +44,7 @@ export default {
         ]),
         
         tapCard(id){   
-            if(this.isPreShow) return ;      
+            if(this.isPreShow | this.status === 'fail') return ;      
             let card = this.$store.getters.getCardById(id); 
             this.checkCouple.push(card);
             if(!card.openCouple && !this.check ){              
